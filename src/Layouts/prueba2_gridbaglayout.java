@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 public class prueba2_gridbaglayout extends JFrame {
     private JPanel mainPanel;
     private JTextField barra_texto;
+
+    private JTextArea area_texto;
     private JLabel label;
     private JButton boton;
 
@@ -277,14 +279,14 @@ public class prueba2_gridbaglayout extends JFrame {
         );
 
         mainPanel.add(
-                barra_texto= new JTextField(),
+                area_texto= new JTextArea(),
                 new GridBagConstraints(
                         1,
                         4,
                         3,
                         1,
                         1.0,
-                        1.0,
+                        3.0,
                         GridBagConstraints.CENTER,
                         GridBagConstraints.BOTH,
                         new Insets(0,0,0,0),
