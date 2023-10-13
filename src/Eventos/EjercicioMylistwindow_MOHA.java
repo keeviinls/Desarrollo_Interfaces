@@ -1,26 +1,24 @@
 package Eventos;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class EjercicioMylistwindow_2 extends JFrame {
+public class EjercicioMylistwindow_MOHA extends JFrame {
 
     private DefaultListModel<String> listModel;
     private JList<String> list;
     private JTextField nombreTextField;
 
 
-    public EjercicioMylistwindow_2(){
+    public EjercicioMylistwindow_MOHA(){
         super("Ejemplo MyJListWindow");
 
         JLabel titleLabel = new JLabel("JList");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
-        titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        titleLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
+        titleLabel.setHorizontalAlignment(SwingConstants.CENTER);  //ESTO ES PARA QUE SALGA EN EL MEDIO, SI NO LO PONGO SALE A LA IZQUIERDA
+        titleLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0)); //PARA QUE HAYA MAS BORDE O MARGEN ABAJO DEL LABEL
 
         // Crear un JTextField para ingresar nombres
         nombreTextField = new JTextField(20);
@@ -112,7 +110,7 @@ public class EjercicioMylistwindow_2 extends JFrame {
 
 
     public static void main(String[] args) {
-        EjercicioMylistwindow_2 tabla= new EjercicioMylistwindow_2();
+        EjercicioMylistwindow_MOHA tabla= new EjercicioMylistwindow_MOHA();
         tabla.setBounds(100, 100, 300, 300);
         tabla.setVisible(true);
         tabla.setLocationRelativeTo(null); // Centrar la ventana en la pantalla

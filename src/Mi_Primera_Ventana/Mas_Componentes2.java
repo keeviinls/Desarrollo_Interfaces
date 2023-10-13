@@ -19,13 +19,17 @@ public class Mas_Componentes2 extends JFrame {
 
     public Mas_Componentes2(){
         mainPanel = new JPanel();
-        mainPanel.setLayout(new FlowLayout());
+        mainPanel.setBackground(Color.blue);
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+
         add(mainPanel);
 
         panel1 = new JPanel();
+        panel1.setBackground(Color.red);
+        panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS)); // Layout vertical para panel1
+
         mainPanel.add(panel1);
 
-        panel1.setLayout(new FlowLayout());
 
         label1 = new JLabel("NOMBRE");
         label1.setBackground(Color.blue);
@@ -53,60 +57,30 @@ public class Mas_Componentes2 extends JFrame {
 
         lista.setBounds(0,0,30,30);
 
-         panel1.add(lista);
+        panel1.add(lista);
 
         scrollpane1 = new JScrollPane(lista);
         scrollpane1.setPreferredSize(new java.awt.Dimension(40, 60));
 
         panel1.add(scrollpane1);
 
-        panel2 = new JPanel();
-        panel2.setBounds(0,0,100,100);
-        panel2.setLayout(new GridBagLayout());
-
-
+       panel2 = new JPanel();
+        panel2.setLayout(new BoxLayout(panel2,BoxLayout.Y_AXIS));
+        panel2.setBackground(Color.green);
         mainPanel.add(panel2);
 
-        panel2.add(
-                label1 = new JLabel("MAS INFORMACION"),
-                new GridBagConstraints(
-                        0,
-                        0,
-                        1,
-                        1,
-                        1.0,
-                        0.1,
-                        GridBagConstraints.WEST,
-                        GridBagConstraints.CENTER,
-                        new Insets(0,0,0,0),
-                        10,
-                        0
-                )
 
-        );
+        label1 = new JLabel("MAS INFORMACION");
+        panel2.add(label1);
 
-        panel2.add(
-                area_texto = new JTextArea(),
-                new GridBagConstraints(
-                        0,
-                        1,
-                        3,
-                        2,
-                        1.0,
-                        1.0,
-                        GridBagConstraints.CENTER,
-                        GridBagConstraints.BOTH,
-                        new Insets(0,0,0,0),
-                        40,
-                        120
-                )
-
-
-        );
+        area_texto = new JTextArea();
+        area_texto.setBackground(Color.yellow);
+        area_texto.setRows(10); // Establecer el número de filas
+        area_texto.setColumns(40); // Establecer el número de columnas
+        panel2.add(area_texto);
 
 
 
-        mainPanel.add(panel2);
     }
 
     public static void main(String[] args) {
@@ -120,3 +94,5 @@ public class Mas_Componentes2 extends JFrame {
 
     }
 }
+
+

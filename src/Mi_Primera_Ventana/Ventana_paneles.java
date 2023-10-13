@@ -17,7 +17,29 @@ public class Ventana_paneles {
 
 
         miPrimeraVentana.add(boton01);
+
+        /**
+        * CENTRARLO VERTICALMENTE USANDO BOXLAYOUT
+        */
+        // Establece un BoxLayout en panel01 con alineación centrada
+        panel01.setLayout(new BoxLayout(panel01, BoxLayout.X_AXIS));
+        panel01.add(Box.createHorizontalGlue()); // Espaciado a la izquierda
         panel01.add(boton02);
+        panel01.add(Box.createHorizontalGlue()); // Espaciado a la derecha
+
+        /**
+         * CENTRARLO VERTICALMENTE USANDO GRIDBAGLAYOUT
+         *
+         *       //   Establece un GridBagLayout en panel01
+         *
+         *         panel01.setLayout(new GridBagLayout());
+         *         GridBagConstraints gbc = new GridBagConstraints();
+         *         gbc.fill = GridBagConstraints.HORIZONTAL;
+         *         panel01.add(boton02, gbc);
+         */
+
+
+
         panel02.add(boton03);
 
         panel01.setBackground(Color.red);
@@ -29,7 +51,7 @@ public class Ventana_paneles {
         miPrimeraVentana.add(panel02);
 
        // miPrimeraVentana.setLayout(new GridLayout());
-        miPrimeraVentana.setLayout(new FlowLayout());
+        miPrimeraVentana.setLayout(new GridLayout());
 
 
 
