@@ -17,7 +17,6 @@ public class CalculadoraFalsa extends JFrame {
 
         // Crea un panel principal con un BorderLayout
         JPanel panelPrincipal = new JPanel(new BorderLayout());
-        panelPrincipal.setBackground(Color.red);
 
 
         // Crea un panel para la pantalla en la parte superior
@@ -34,6 +33,8 @@ public class CalculadoraFalsa extends JFrame {
         // Configura el alto del JTextField (panel de pantalla) a un valor más grande
         Dimension alto_panel_pantalla = new Dimension(pantalla.getPreferredSize().width, 35); // Cambia 35 al alto que desees
         pantalla.setPreferredSize(alto_panel_pantalla);
+
+
 
 
 
