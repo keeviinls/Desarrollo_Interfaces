@@ -1,21 +1,24 @@
 package ProyectoCalculadora;
 
-import Eventos.Ejercicio_InterfaceSeleccion;
-
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Calculadora_funcional extends JFrame {
+public class Calculadora_funcional_PRUEBA_DOS extends JFrame {
 
     private JTextField pantalla;
     private JButton boton;
+    private String expresion = "";
+
 
     //TAMAÑO y TIPO DE LETRAS
     Font estilo_boton = new Font("boton", Font.ITALIC, 20);
 
-    public Calculadora_funcional(){
+    public Calculadora_funcional_PRUEBA_DOS(){
         setTitle("CALCULADORA DE KEVIN");
 
         /**
@@ -92,6 +95,36 @@ public class Calculadora_funcional extends JFrame {
 
 
 
+        // Agregamos un ActionListener para manejar el clic en el botón
+            boton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    String botonText = ((JButton) e.getSource()).getText();
+
+                    // Lógica para manejar diferentes casos
+                    if (botonText.equals("=")) {
+                        // Evaluar la expresión y mostrar el resultado en la pantalla
+                        try {
+                            expresion = evaluarExpresion(expresion);
+                            pantalla.setText(expresion);
+                        } catch (Exception ex) {
+                            pantalla.setText("Error");
+                            expresion = "";
+                        }
+                    } else if (botonText.equals("C")) {
+                        // Borrar la expresión actual
+                        expresion = "";
+                        pantalla.setText("");
+                    } else {
+                        // Agregar el texto del botón a la expresión actual
+                        expresion += botonText;
+                        pantalla.setText(expresion);
+                    }
+                }
+            });
+
+
+
             // Configura el color de fondo de los botones 5, 6 y 7 a rojo
             if (boton_string.equals("÷") || boton_string.equals("%") || boton_string.equals("√") ||
                     boton_string.equals("x") || boton_string.equals("+") || boton_string.equals("-")
@@ -134,11 +167,27 @@ public class Calculadora_funcional extends JFrame {
     }
 
 
+    private String evaluarExpresion(String expresion) throws ScriptException {
+        // Reemplaza los caracteres específicos para que JavaScript los entienda
+        expresion = expresion.replace("x²", "**2"); // Cambia x² a **2
+        expresion = expresion.replace("√", "Math.sqrt(").replace(")", ")"); // Agrega Math.sqrt() para la raíz cuadrada
+        expresion = expresion.replace("%", "/100"); // Cambia % a /100*
+        expresion = expresion.replace("x", "*"); // Cambia x a *
+        expresion = expresion.replace("÷", "/"); // Cambia x a *
 
+
+        try {
+            ScriptEngineManager manager = new ScriptEngineManager();
+            ScriptEngine engine = manager.getEngineByName("js");
+            return engine.eval(expresion).toString();
+        } catch (Exception ex) {
+            return "Error";
+        }
+    }
 
 
     public static void main(String[] args) {
-        Calculadora_funcional calculadora_funciona= new Calculadora_funcional();
+        Calculadora_funcional_PRUEBA_DOS calculadora_funciona= new Calculadora_funcional_PRUEBA_DOS();
         calculadora_funciona.setBounds(0, 0, 400, 500);
         calculadora_funciona.setVisible(true);
         calculadora_funciona.setLocationRelativeTo(null); // Centrar la ventana en la pantalla

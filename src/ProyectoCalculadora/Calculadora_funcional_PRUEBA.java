@@ -1,21 +1,28 @@
 package ProyectoCalculadora;
 
-import Eventos.Ejercicio_InterfaceSeleccion;
-
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Calculadora_funcional extends JFrame {
+public class Calculadora_funcional_PRUEBA extends JFrame {
 
     private JTextField pantalla;
     private JButton boton;
 
+    private String inputBuffer = "";
+    private ScriptEngineManager scriptEngineManager = new ScriptEngineManager();
+    private ScriptEngine scriptEngine = scriptEngineManager.getEngineByName("JavaScript");
+
+
+
     //TAMAÑO y TIPO DE LETRAS
     Font estilo_boton = new Font("boton", Font.ITALIC, 20);
 
-    public Calculadora_funcional(){
+    public Calculadora_funcional_PRUEBA(){
         setTitle("CALCULADORA DE KEVIN");
 
         /**
@@ -82,7 +89,7 @@ public class Calculadora_funcional extends JFrame {
             "=", "0", ".", "C",
         };
 
-
+        
 
 
         //BUCLE PARA CREAR LOS BOTONES Y NO HACERLOS DE 1 EN 1
@@ -114,6 +121,35 @@ public class Calculadora_funcional extends JFrame {
 
             boton.setFont(estilo_boton);
            panel_abajo.add(boton);
+
+            boton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JButton source = (JButton) e.getSource();
+                    String buttonText = source.getText();
+
+                    // Realiza la conversión de "x" a "*" y "÷" a "/"
+                    if (buttonText.equals("x")) {
+                        buttonText = "*";
+                    } else if (buttonText.equals("÷")) {
+                        buttonText = "/";
+                    }
+
+
+                    if (buttonText.equals("=")) {
+                        // Realizar la operación y mostrar el resultado en la pantalla
+                        calcularResultado();
+                    } else if (buttonText.equals("C")) {
+                        // Limpiar la pantalla
+                        inputBuffer = "";
+                        pantalla.setText("");
+                    } else {
+                        // Agregar el texto del botón al búfer de entrada
+                        inputBuffer += buttonText;
+                        pantalla.setText(inputBuffer);
+                    }
+                }
+            });
         }
 
 
@@ -134,11 +170,28 @@ public class Calculadora_funcional extends JFrame {
     }
 
 
+    private void calcularResultado() {
+        try {
+            Object result = scriptEngine.eval(inputBuffer);
+            pantalla.setText(inputBuffer + " = " + result.toString());
+        } catch (ScriptException e) {
+            pantalla.setText("Error");
+        }
+    }
 
+    private double evaluarExpresion(String expresion) {
+        try {
+            Object result = scriptEngine.eval(expresion);
+            return Double.parseDouble(result.toString());
+        } catch (ScriptException e) {
+            pantalla.setText("Error");
+        }
+        return 0.0; // Por ahora, simplemente devolvemos 0
+    }
 
 
     public static void main(String[] args) {
-        Calculadora_funcional calculadora_funciona= new Calculadora_funcional();
+        Calculadora_funcional_PRUEBA calculadora_funciona= new Calculadora_funcional_PRUEBA();
         calculadora_funciona.setBounds(0, 0, 400, 500);
         calculadora_funciona.setVisible(true);
         calculadora_funciona.setLocationRelativeTo(null); // Centrar la ventana en la pantalla
