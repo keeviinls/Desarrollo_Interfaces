@@ -101,6 +101,12 @@ public class Calculadora_funcional_PRUEBA_DOS extends JFrame {
                 public void actionPerformed(ActionEvent e) {
                     String botonText = ((JButton) e.getSource()).getText();
 
+
+                    if (botonText.equals("x²")) {
+                        botonText = "^2";
+                    } else if (botonText.equals("÷")) {
+                        botonText = "/";
+                    }
                     // Lógica para manejar diferentes casos
                     if (botonText.equals("=")) {
                         // Evaluar la expresión y mostrar el resultado en la pantalla
@@ -169,11 +175,12 @@ public class Calculadora_funcional_PRUEBA_DOS extends JFrame {
 
     private String evaluarExpresion(String expresion) throws ScriptException {
         // Reemplaza los caracteres específicos para que JavaScript los entienda
-        expresion = expresion.replace("x²", "**2"); // Cambia x² a **2
+        expresion = expresion.replace("x²", "Math.pow(x, 2)"); // Cambia x² a **2
         expresion = expresion.replace("√", "Math.sqrt(").replace(")", ")"); // Agrega Math.sqrt() para la raíz cuadrada
         expresion = expresion.replace("%", "/100"); // Cambia % a /100*
         expresion = expresion.replace("x", "*"); // Cambia x a *
         expresion = expresion.replace("÷", "/"); // Cambia x a *
+
 
 
         try {

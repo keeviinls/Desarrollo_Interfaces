@@ -115,11 +115,9 @@ public class Calculadora_funcional_PRUEBA extends JFrame {
                 boton.setBackground(Color.black);
             }
 
-
             boton.setForeground(Color.white);
-
-
             boton.setFont(estilo_boton);
+
            panel_abajo.add(boton);
 
             boton.addActionListener(new ActionListener() {

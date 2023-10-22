@@ -147,4 +147,43 @@ public class Calculadora_funcional extends JFrame {
 
 }
 
+/**
+ *
+ * String[] botones = {
+ *                 "÷", "%", "√", "x²",
+ *                 "x", "7", "8", "9",
+ *                 "+", "4", "5", "6",
+ *                 "-", "1", "2", "3",
+ *                 "=", "0", ".", "C",
+ *         };
+ *
+ *         for (String boton_string : botones){
+ *             boton = new JButton(boton_string);
+ *
+ *             // Agregar un ActionListener al botón actual
+ *             boton.addActionListener(e -> {
+ *                 // Obtener la etiqueta del botón presionado
+ *                 String etiquetaBoton = ((JButton) e.getSource()).getText();
+ *
+ *                 // Realizar alguna acción basada en la etiqueta del botón
+ *                 if (etiquetaBoton.equals("5")) {
+ *                     // Código a ejecutar cuando se presiona el botón "5"
+ *                     // Por ejemplo, puedes mostrar "5" en la pantalla
+ *                     pantalla.setText(this.pantalla.getText()+"5");
+ *
+ *                 } else if (etiquetaBoton.equals("=")) {
+ *                     // Código a ejecutar cuando se presiona el botón "="
+ *                     // Por ejemplo, puedes realizar una operación de cálculo
+ *                     // aquí o mostrar el resultado en la pantalla
+ *                 }
+ *                 // Agrega más condiciones para otros botones según lo que quieras hacer
+ *
+ *                 // ...
+ *             });
+ *             panel_abajo.add(boton);
+ *         }
+ *
+ *
+ */
+
 
