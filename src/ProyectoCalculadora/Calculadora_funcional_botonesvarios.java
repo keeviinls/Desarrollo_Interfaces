@@ -4,8 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Calculadora_funcional_botonesvarios extends JFrame implements ActionListener {
+
+
 
     private JTextField pantalla_resultado;
     private JTextField pantalla_operaciones;
@@ -23,7 +27,7 @@ public class Calculadora_funcional_botonesvarios extends JFrame implements Actio
     Font estilo_boton = new Font("boton", Font.ITALIC, 20);
 
     public Calculadora_funcional_botonesvarios(){
-        setTitle("CALCULADORA DE KEVIN");
+        setTitle("Calculadora M.B.Cossío");
 
         /**
          * -----------------------------------------------MAIN PANEL--------------------------------------------
@@ -40,7 +44,7 @@ public class Calculadora_funcional_botonesvarios extends JFrame implements Actio
 
         //PANEL DE ARRIBA, AQUI IRA LA PANTALLA DONDE APARECERAN LOS NUMEROS SELECCIONADOS Y EL RESULTADO
         JPanel panel_arriba = new JPanel(new BorderLayout());
-        panel_arriba.setBackground(new Color(161,0,68));
+        panel_arriba.setBackground(new Color(3,41,64));
 
         panel_arriba.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
@@ -52,7 +56,7 @@ public class Calculadora_funcional_botonesvarios extends JFrame implements Actio
         pantalla_operaciones = new JTextField();
         pantalla_operaciones.setHorizontalAlignment(JTextField.RIGHT); // Esto indica que al escribir texto en la pantalla, lo mostrará alineado a la derecha.
         // ESTILO DE LA PANTALLA
-        pantalla_operaciones.setBackground(Color.white);
+        pantalla_operaciones.setBackground(new Color(253,223,185));
         pantalla_operaciones.setFont(new Font("letra_pantalla", Font.ITALIC, 15));
         pantalla_operaciones.setForeground(Color.black);
 
@@ -71,11 +75,11 @@ public class Calculadora_funcional_botonesvarios extends JFrame implements Actio
          */
 
         //PANTALLA
-        pantalla_resultado = new JTextField();
+        pantalla_resultado = new JTextField("0");
         pantalla_resultado.setHorizontalAlignment(JTextField.RIGHT); //ESTO INDICA QUE AL ESCRIBIR TEXTO EN LA PANTALLA, LO MOSTRARA ALINEADO A LA DERECHA. OSEA EMPEZARA POR LA DERECHA.
 
         //ESTILO DE LA PANTALLA
-        pantalla_resultado.setBackground(Color.white);
+        pantalla_resultado.setBackground(new Color(253,223,185));
         pantalla_resultado.setFont(new Font("letra_pantalla", Font.ITALIC, 30));
         pantalla_resultado.setForeground(Color.black);
 
@@ -96,6 +100,7 @@ public class Calculadora_funcional_botonesvarios extends JFrame implements Actio
          */
         //PANEL DE ABAJO, AQUI COLOCAREMOS LOS BOTONES
         JPanel panel_abajo = new JPanel();
+        panel_abajo.setBackground(new Color(3,41,64));
         panel_abajo.setLayout(new GridLayout(5,4, 10, 10));
         panel_abajo.setBorder(BorderFactory.createEmptyBorder(20,10,20,10));
 
@@ -106,6 +111,7 @@ public class Calculadora_funcional_botonesvarios extends JFrame implements Actio
 
         //CREAMOS LOS BOTONES
         boton_dividir = new JButton("/"); panel_abajo.add(boton_dividir); boton_dividir.addActionListener(this);
+
         boton_potencia = new JButton("x²"); panel_abajo.add(boton_potencia); boton_potencia.addActionListener(this);
         boton_raiz = new JButton("√"); panel_abajo.add(boton_raiz); boton_raiz.addActionListener(this);
         boton_ce = new JButton("CE"); panel_abajo.add(boton_ce); boton_ce.addActionListener(this);
@@ -133,31 +139,31 @@ public class Calculadora_funcional_botonesvarios extends JFrame implements Actio
         //LES DISEÑAMOS EL ESTILO A LOS BOTONES
 
         //DISEÑO BOTONES DE OPERACIONES
-        boton_dividir.setBackground( new Color(0,39,131)); boton_dividir.setForeground(Color.white); boton_dividir.setFont(estilo_boton);
-        boton_potencia.setBackground(new Color(0,39,131)); boton_potencia.setForeground(Color.white); boton_potencia.setFont(estilo_boton);
-        boton_raiz.setBackground(new Color(0,39,131)); boton_raiz.setForeground(Color.white); boton_raiz.setFont(estilo_boton);
-        boton_ce.setBackground(new Color(0,39,131)); boton_ce.setForeground(Color.white); boton_ce.setFont(estilo_boton);
-        boton_multiplicar.setBackground(new Color(0,39,131)); boton_multiplicar.setForeground(Color.white); boton_multiplicar.setFont(estilo_boton);
-        boton_restar.setBackground(new Color(0,39,131)); boton_restar.setForeground(Color.white); boton_restar.setFont(estilo_boton);
-        boton_sumar.setBackground(new Color(0,39,131)); boton_sumar.setForeground(Color.white); boton_sumar.setFont(estilo_boton);
+        boton_dividir.setBackground( new Color(49,127,146)); boton_dividir.setForeground(Color.white); boton_dividir.setFont(estilo_boton);
+        boton_potencia.setBackground(new Color(49,127,146)); boton_potencia.setForeground(Color.white); boton_potencia.setFont(estilo_boton);
+        boton_raiz.setBackground(new Color (49,127,146)); boton_raiz.setForeground(Color.white); boton_raiz.setFont(estilo_boton);
+        boton_ce.setBackground(new Color (49,127,146)); boton_ce.setForeground(Color.white); boton_ce.setFont(estilo_boton);
+        boton_multiplicar.setBackground(new Color(49,127,146)); boton_multiplicar.setForeground(Color.white); boton_multiplicar.setFont(estilo_boton);
+        boton_restar.setBackground(new Color (49,127,146)); boton_restar.setForeground(Color.white); boton_restar.setFont(estilo_boton);
+        boton_sumar.setBackground(new Color(49,127,146)); boton_sumar.setForeground(Color.white); boton_sumar.setFont(estilo_boton);
 
         //DISEÑO BOTONES NUMEROS
-        boton_0.setBackground(Color.white); boton_0.setForeground(new Color(0,39,131));; boton_0.setFont(estilo_boton);
-        boton_1.setBackground(Color.white); boton_1.setForeground(new Color(0,39,131));; boton_1.setFont(estilo_boton);
-        boton_2.setBackground(Color.white); boton_2.setForeground(new Color(0,39,131));; boton_2.setFont(estilo_boton);
-        boton_3.setBackground(Color.white); boton_3.setForeground(new Color(0,39,131));; boton_3.setFont(estilo_boton);
-        boton_4.setBackground(Color.white); boton_4.setForeground(new Color(0,39,131));; boton_4.setFont(estilo_boton);
-        boton_5.setBackground(Color.white); boton_5.setForeground(new Color(0,39,131));; boton_5.setFont(estilo_boton);
-        boton_6.setBackground(Color.white); boton_6.setForeground(new Color(0,39,131));; boton_6.setFont(estilo_boton);
-        boton_7.setBackground(Color.white); boton_7.setForeground(new Color(0,39,131));; boton_7.setFont(estilo_boton);
-        boton_8.setBackground(Color.white); boton_8.setForeground(new Color(0,39,131));; boton_8.setFont(estilo_boton);
-        boton_9.setBackground(Color.white); boton_9.setForeground(new Color(0,39,131));; boton_9.setFont(estilo_boton);
-        boton_c.setBackground(Color.white); boton_c.setForeground(new Color(0,39,131));; boton_c.setFont(estilo_boton);
-        boton_punto.setBackground(Color.white); boton_punto.setForeground(new Color(0,39,131));; boton_punto.setFont(estilo_boton);
+        boton_0.setBackground(Color.white); boton_0.setForeground(new Color(3,41,64));; boton_0.setFont(estilo_boton);
+        boton_1.setBackground(Color.white); boton_1.setForeground(new Color(3,41,64));; boton_1.setFont(estilo_boton);
+        boton_2.setBackground(Color.white); boton_2.setForeground(new Color(3,41,64));; boton_2.setFont(estilo_boton);
+        boton_3.setBackground(Color.white); boton_3.setForeground(new Color(3,41,64));; boton_3.setFont(estilo_boton);
+        boton_4.setBackground(Color.white); boton_4.setForeground(new Color(3,41,64));; boton_4.setFont(estilo_boton);
+        boton_5.setBackground(Color.white); boton_5.setForeground(new Color(3,41,64));; boton_5.setFont(estilo_boton);
+        boton_6.setBackground(Color.white); boton_6.setForeground(new Color(3,41,64));; boton_6.setFont(estilo_boton);
+        boton_7.setBackground(Color.white); boton_7.setForeground(new Color(3,41,64));; boton_7.setFont(estilo_boton);
+        boton_8.setBackground(Color.white); boton_8.setForeground(new Color(3,41,64));; boton_8.setFont(estilo_boton);
+        boton_9.setBackground(Color.white); boton_9.setForeground(new Color(3,41,64));; boton_9.setFont(estilo_boton);
+        boton_c.setBackground(Color.white); boton_c.setForeground(new Color(3,41,64));; boton_c.setFont(estilo_boton);
+        boton_punto.setBackground(Color.white); boton_punto.setForeground(new Color(3,41,64));; boton_punto.setFont(estilo_boton);
 
         //DISEÑO BOTON RESULTADO
 
-        boton_igual.setBackground(new Color(161,0,68)); boton_igual.setForeground(Color.white); boton_igual.setFont(estilo_boton);
+        boton_igual.setBackground(new Color(125,27,59)); boton_igual.setForeground(Color.white); boton_igual.setFont(estilo_boton);
 
 
 
@@ -378,7 +384,7 @@ public class Calculadora_funcional_botonesvarios extends JFrame implements Actio
 
     public static void main(String[] args) {
         Calculadora_funcional_botonesvarios calculadora_funciona= new Calculadora_funcional_botonesvarios();
-        calculadora_funciona.setBounds(0, 0, 400, 500);
+        calculadora_funciona.setBounds(0, 0, 320, 500);
         calculadora_funciona.setVisible(true);
         calculadora_funciona.setLocationRelativeTo(null); // Centrar la ventana en la pantalla
         calculadora_funciona.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
