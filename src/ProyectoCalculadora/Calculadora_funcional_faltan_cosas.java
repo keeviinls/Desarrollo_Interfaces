@@ -1,13 +1,9 @@
 package ProyectoCalculadora;
 
-import Eventos.Ejercicio_InterfaceSeleccion;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class Calculadora_funcional extends JFrame {
+public class Calculadora_funcional_faltan_cosas extends JFrame {
 
     private JTextField pantalla;
     private JButton boton;
@@ -15,7 +11,7 @@ public class Calculadora_funcional extends JFrame {
     //TAMAÑO y TIPO DE LETRAS
     Font estilo_boton = new Font("boton", Font.ITALIC, 20);
 
-    public Calculadora_funcional(){
+    public Calculadora_funcional_faltan_cosas(){
         setTitle("CALCULADORA DE KEVIN");
 
         /**
@@ -55,7 +51,6 @@ public class Calculadora_funcional extends JFrame {
 
         // Configuramos el JTextField para ocupar todo el espacio disponible en el panel_arriba
         pantalla.setPreferredSize(new Dimension(Integer.MAX_VALUE, pantalla.getPreferredSize().height));
-
         panel_arriba.add(pantalla, BorderLayout.CENTER);
 
 
@@ -107,13 +102,9 @@ public class Calculadora_funcional extends JFrame {
             else {
                 boton.setBackground(Color.black);
             }
-
-
             boton.setForeground(Color.white);
-
-
             boton.setFont(estilo_boton);
-           panel_abajo.add(boton);
+            panel_abajo.add(boton);
         }
 
 
@@ -138,7 +129,7 @@ public class Calculadora_funcional extends JFrame {
 
 
     public static void main(String[] args) {
-        Calculadora_funcional calculadora_funciona= new Calculadora_funcional();
+        Calculadora_funcional_faltan_cosas calculadora_funciona= new Calculadora_funcional_faltan_cosas();
         calculadora_funciona.setBounds(0, 0, 400, 500);
         calculadora_funciona.setVisible(true);
         calculadora_funciona.setLocationRelativeTo(null); // Centrar la ventana en la pantalla

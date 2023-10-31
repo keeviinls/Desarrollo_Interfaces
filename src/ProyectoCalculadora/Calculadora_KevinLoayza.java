@@ -4,10 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-public class Calculadora_funcional_botonesvarios extends JFrame implements ActionListener {
+public class Calculadora_KevinLoayza extends JFrame implements ActionListener {
 
     /**
      * -----------------------------------------------ATRIBUTOS PRINCIPALES--------------------------------------------
@@ -27,7 +25,7 @@ public class Calculadora_funcional_botonesvarios extends JFrame implements Actio
     //TAMAÑO y TIPO DE LETRAS
     Font estilo_boton = new Font("boton", Font.ITALIC, 20); // Establecemos un tipo de letra para los diferentes botones y asi tengan todos el mismo
 
-    public Calculadora_funcional_botonesvarios(){
+    public Calculadora_KevinLoayza(){
 
         /**-----------------------------------------------------------------------------------------------------------------------------
          *                                                 DISEÑO DE LA CALCULADORA
@@ -482,7 +480,7 @@ public class Calculadora_funcional_botonesvarios extends JFrame implements Actio
     }
 
     public static void main(String[] args) {
-        Calculadora_funcional_botonesvarios calculadora_funciona= new Calculadora_funcional_botonesvarios();    // Se crea la instancia para la clase, se guarda en una variable.
+        Calculadora_KevinLoayza calculadora_funciona= new Calculadora_KevinLoayza();    // Se crea la instancia para la clase, se guarda en una variable.
         calculadora_funciona.setBounds(0, 0, 320, 500); //  Establecemos el tamaño de la venta cuando ejecutemos la calculadora
         calculadora_funciona.setVisible(true);  // Permitimos la visibilidad de la ventana, asi se hace visible para el usuario
         calculadora_funciona.setLocationRelativeTo(null); // Sirve para indicar que la ventana aparezca en el centro de la pantalla

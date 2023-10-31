@@ -19,7 +19,7 @@ public class Calculadora_funcional_MIA extends JFrame {
     Font estilo_boton = new Font("boton", Font.ITALIC, 20);
 
     public Calculadora_funcional_MIA(){
-        setTitle("CALCULADORA DE KEVIN");
+        setTitle("Calculadora M.B.Cossío");
 
         /**
          * -----------------------------------------------MAIN PANEL--------------------------------------------
