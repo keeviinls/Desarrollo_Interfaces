@@ -45,10 +45,7 @@ public class MiTabla extends JFrame {
          */
         JPanel panel_interfaz = new JPanel();
 
-       /* // Crea un objeto Insets para establecer márgenes (izquierda, arriba, derecha, abajo)
 
-        // Establece los márgenes al panel_interfaz
-        panel_interfaz.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));*/
         panel_interfaz.setLayout(new GridBagLayout());
 
 
@@ -239,9 +236,9 @@ public class MiTabla extends JFrame {
                     Object[] nuevafila = {id, nombre, apellidos, dni, email, contrasena};
 
                     DefaultTableModel model = (DefaultTableModel) tabla.getModel();
-                    model.addRow(nuevafila);  // Agregar la nueva fila al DefaultTableModel de la tabla
+                    model.addRow(nuevafila);  // AGREGA NUEVA FILA A LA TABLA
 
-                    // Incrementa el contador y actualiza el valor por defecto de texto_nombre
+                    // INCREMENTA EL CONTADOR Y ACTUALIZA EL VALOR POR DEFECTO DE TEXTO_NOMBRE
                     contadorID++;
                     numero_id.setText(Integer.toString(contadorID));
 
@@ -289,7 +286,7 @@ public class MiTabla extends JFrame {
         tabla = new JTable(modelo_tabla);
         JScrollPane scrollPane = new JScrollPane(tabla);
 
-        tabla.setPreferredScrollableViewportSize(new Dimension(600, 300)); // Cambia estos valores según tus necesidades
+        tabla.setPreferredScrollableViewportSize(new Dimension(600, 300));
 
 
         /**
@@ -346,9 +343,9 @@ public class MiTabla extends JFrame {
             public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
                 Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 
-                // Configura el color de fondo de las cabeceras en rojo
+
                 cell.setBackground(new Color(194,166,119));
-                cell.setForeground(Color.WHITE); // Cambia el color de texto de las cabeceras a blanco
+                cell.setForeground(Color.WHITE);
 
                 return cell;
             }
@@ -369,7 +366,7 @@ public class MiTabla extends JFrame {
 
     public static void main(String[] args) {
         MiTabla interfaz_mitabla = new MiTabla();
-        interfaz_mitabla.setBounds(0, 0, 1000, 580); // Ajusta el ancho de la ventana principal según tus necesidades
+        interfaz_mitabla.setBounds(0, 0, 1000, 580);
         interfaz_mitabla.setVisible(true);;
         interfaz_mitabla.setVisible(true);
         interfaz_mitabla.setLocationRelativeTo(null);
