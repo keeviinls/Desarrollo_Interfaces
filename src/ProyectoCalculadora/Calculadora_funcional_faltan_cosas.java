@@ -113,7 +113,7 @@ public class Calculadora_funcional_faltan_cosas extends JFrame {
 
 
 
-        /**
+        /*
          * -----------------------------------------------AÑADIMOS EL CONTENIDO AL MAIN PANEL-------------------------------------------
          * -----------------------------------------------Y EL MAINPANEL AL JFRAME-------------------------------------------
          */

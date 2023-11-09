@@ -362,8 +362,38 @@ public class Calculadora_funcional_MIA extends JFrame {
     }
 
 
+/*
+modificarButton.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            int selectedRow = table1.getSelectedRow();
+            if (selectedRow != -1) {
+                String name = textField1.getText();
+                String lastName = textField2.getText();
+                String dni = textField3.getText();
+                String email = textField4.getText();
+                char[] passwordChars = textField5.getText().toCharArray();
 
+                if (name.isEmpty() || lastName.isEmpty() || email.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Los campos Nombre, Apellidos y Email son obligatorios.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
 
+                String password = new String(new char[passwordChars.length]).replace('\0', '*');
+
+                tableModel.setValueAt(name, selectedRow, 1);
+                tableModel.setValueAt(lastName, selectedRow, 2);
+                tableModel.setValueAt(dni, selectedRow, 3);
+                tableModel.setValueAt(email, selectedRow, 4);
+                tableModel.setValueAt(password, selectedRow, 5);
+
+                textField1.setText("");
+                textField2.setText("");
+                textField3.setText("");
+                textField4.setText("");
+                textField5.setText("");
+            }
+        }
+    });*/
 
     public static void main(String[] args) {
         Calculadora_funcional_MIA calculadora_funciona= new Calculadora_funcional_MIA();
