@@ -232,6 +232,7 @@ public class MiTabla extends JFrame {
                 if (nombre.isEmpty() || apellidos.isEmpty() || email.isEmpty()){
                     JOptionPane.showMessageDialog(null, "Es obligatorio rellenar nombre, apellidos y email", "Error faltan datos", JOptionPane.ERROR_MESSAGE);
                 }
+
                 else {
                     Object[] nuevafila = {id, nombre, apellidos, dni, email, contrasena};
 

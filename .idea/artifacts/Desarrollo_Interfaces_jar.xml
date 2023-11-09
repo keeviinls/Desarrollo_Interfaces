@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Desarrollo_Interfaces:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Desarrollo_Interfaces_jar</output-path>
+    <root id="archive" name="Desarrollo_Interfaces.jar">
+      <element id="module-output" name="Desarrollo_Interfaces" />
+    </root>
+  </artifact>
+</component>
