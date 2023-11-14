@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class Calculadora_KevinLoayza extends JFrame implements ActionListener {
 
@@ -83,6 +85,26 @@ public class Calculadora_KevinLoayza extends JFrame implements ActionListener {
         pantalla_resultado = new JTextField("0");
         pantalla_resultado.setHorizontalAlignment(JTextField.RIGHT);
 
+        pantalla_resultado.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (Character.isLetter(c)){
+                    e.consume();
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
+
 
 
         pantalla_resultado.setBackground(new Color(253,223,185));
@@ -99,7 +121,7 @@ public class Calculadora_KevinLoayza extends JFrame implements ActionListener {
 
 
 
-        /**
+        /*
          * -----------------------------------------------PANEL DE ABAJO-------------------------------------------
          */
         JPanel panel_abajo = new JPanel();  // Panel que ocupara todo le demas que sobre del panel superior, aqui guardaremos los botones
