@@ -5,7 +5,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Formulario_GUI extends JFrame {
+public class Formulario_GUI_KevinLoayza extends JFrame {
 
 
     private JPanel mainPanel;
@@ -18,7 +18,6 @@ public class Formulario_GUI extends JFrame {
 
     private int contadorID = 1;
 
-    private DefaultTableModel modelo_tabla;
     private JLabel titulo;
     private JButton boton_nuevo;
     private JButton boton_añadir;
@@ -43,10 +42,10 @@ public class Formulario_GUI extends JFrame {
     private String apellidos;
     private String dni;
     private String email;
-    private String contrasena;
+    private char[] contrasena;
 
 
-    public Formulario_GUI() {
+    public Formulario_GUI_KevinLoayza() {
         boton_nuevo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -70,7 +69,7 @@ public class Formulario_GUI extends JFrame {
                 apellidos = barra_apellidos.getText().trim();
                 dni = barra_dni.getText().trim();
                 email = barra_email.getText().trim();
-                contrasena = barra_contrasena.getText().trim();
+                contrasena = barra_contrasena.getText().toCharArray();
 
                 if (nombre.isEmpty() || apellidos.isEmpty() || email.isEmpty()){
                     JOptionPane.showMessageDialog(null, "Es obligatorio rellenar nombre, apellidos y email", "Error faltan datos", JOptionPane.ERROR_MESSAGE);
@@ -114,7 +113,7 @@ public class Formulario_GUI extends JFrame {
     }
 
     public static void main(String[] args) {
-        Formulario_GUI formulario = new Formulario_GUI();
+        Formulario_GUI_KevinLoayza formulario = new Formulario_GUI_KevinLoayza();
         formulario.setContentPane(formulario.mainPanel);
         formulario.setTitle("Formulario");
         formulario.setSize(900, 550);
