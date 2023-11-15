@@ -2,6 +2,7 @@ package Layouts;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 
 public class prueba_flowlayout extends JFrame  {
@@ -10,6 +11,7 @@ public class prueba_flowlayout extends JFrame  {
     private JButton boton1, boton2, boton3, boton4, boton5, boton6;
 
      private JRadioButton botonradio1, botonradio2;
+     private JTextField barra_texto;
 
     public prueba_flowlayout() {
 
@@ -53,14 +55,12 @@ public class prueba_flowlayout extends JFrame  {
             mainPanel.add(botonprueba);
         }
 
+        mainPanel.add(barra_texto);
+
+
         add(mainPanel);
 
-
-
-
-
     }
-
 
     public static void main(String[] args) {
 
