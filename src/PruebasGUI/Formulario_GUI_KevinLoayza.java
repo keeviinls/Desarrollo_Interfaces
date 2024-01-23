@@ -19,20 +19,20 @@ public class Formulario_GUI_KevinLoayza extends JFrame {
 
     int idc;
 
-    private JPanel mainpanel;
+    private JPanel mainPanel;
     private JPanel panel_izquierdo;
     private JPanel panel_derecho;
-    private JTextField barra_nombre;
-    private JTextField barra_apellidos;
-    private JTextField barra_dni;
-    private JTextField barra_email;
+    private JTextField texto_nombre;
+    private JTextField texto_fecha;
+    private JTextField texto_hora;
+    private JTextField texto_tarea;
 
     private int contadorID = 1;
 
     private JLabel titulo;
-    private JButton boton_nuevo;
-    private JButton boton_añadir;
-    private JButton boton_modificar;
+    private JButton boton_agregar;
+    private JButton boton_editar;
+    private JButton boton_eliminar;
     private JPanel panel_botones;
     private JPanel panel_formulario;
     private JPanel panel_titulo;
@@ -41,12 +41,15 @@ public class Formulario_GUI_KevinLoayza extends JFrame {
     private JLabel titulo_dni;
     private JLabel titulo_email;
     private JLabel titulo_contrasena;
-    private JPasswordField barra_contrasena;
-    private JLabel titulo_id;
+    private JPasswordField texto_descripcion;
     private JTextField numero_id;
-    private JButton boton_eliminar;
+    private JButton boton_cambiar_estado;
     private JPanel panel_tabla;
-    private JTable showTable;
+    private JTable tabla;
+    private JButton boton_filtrar;
+    private JButton boton_informacion_adicional;
+    private JButton boton_ayuda;
+    private JScrollPane scrollpane;
     private DefaultTableModel model;
 
     private String id;
@@ -62,7 +65,7 @@ public class Formulario_GUI_KevinLoayza extends JFrame {
         consultar();
 
 
-        boton_añadir.addActionListener(new ActionListener() {
+        boton_editar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Agregar();
@@ -70,32 +73,32 @@ public class Formulario_GUI_KevinLoayza extends JFrame {
                 Nuevo();
             }
         });
-        showTable.addMouseListener(new MouseAdapter() {
+        tabla.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int fila = showTable.getSelectedRow();
+                int fila = tabla.getSelectedRow();
                 if (fila == -1){
                     JOptionPane.showMessageDialog(null, "No se seleccionó fila");
                 }
                 else {
-                    idc = Integer.parseInt((String) showTable.getValueAt(fila,0).toString());
-                    String nombre = (String) showTable.getValueAt(fila,1);
-                    String apellido = (String) showTable.getValueAt(fila,2);
-                    String dni = (String) showTable.getValueAt(fila,3);
-                    String email = (String) showTable.getValueAt(fila,4);
-                    String contrasena = (String) showTable.getValueAt(fila,5);
+                    idc = Integer.parseInt((String) tabla.getValueAt(fila,0).toString());
+                    String nombre = (String) tabla.getValueAt(fila,1);
+                    String apellido = (String) tabla.getValueAt(fila,2);
+                    String dni = (String) tabla.getValueAt(fila,3);
+                    String email = (String) tabla.getValueAt(fila,4);
+                    String contrasena = (String) tabla.getValueAt(fila,5);
 
                     numero_id.setText(""+idc);
-                    barra_nombre.setText(nombre);
-                    barra_apellidos.setText(apellido);
-                    barra_dni.setText(dni);
-                    barra_email.setText(email);
-                    barra_contrasena.setText(contrasena);
+                    texto_nombre.setText(nombre);
+                    texto_fecha.setText(apellido);
+                    texto_hora.setText(dni);
+                    texto_tarea.setText(email);
+                    texto_descripcion.setText(contrasena);
 
                 }
             }
         });
-        boton_modificar.addActionListener(new ActionListener() {
+        boton_eliminar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Modificar();
@@ -103,7 +106,7 @@ public class Formulario_GUI_KevinLoayza extends JFrame {
                 Nuevo();
             }
         });
-        boton_eliminar.addActionListener(new ActionListener() {
+        boton_cambiar_estado.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Eliminar();
@@ -111,7 +114,7 @@ public class Formulario_GUI_KevinLoayza extends JFrame {
                 Nuevo();
             }
         });
-        boton_nuevo.addActionListener(new ActionListener() {
+        boton_agregar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Nuevo();
@@ -121,15 +124,15 @@ public class Formulario_GUI_KevinLoayza extends JFrame {
 
     private void Nuevo() {
         numero_id.setText("");
-        barra_nombre.setText("");
-        barra_apellidos.setText("");
-        barra_dni.setText("");
-        barra_email.setText("");
-        barra_contrasena.setText("");
+        texto_nombre.setText("");
+        texto_fecha.setText("");
+        texto_hora.setText("");
+        texto_tarea.setText("");
+        texto_descripcion.setText("");
     }
 
     private void Eliminar() {
-        int fila = showTable.getSelectedRow();
+        int fila = tabla.getSelectedRow();
         try {
             if (fila<0){
                 JOptionPane.showMessageDialog(null, "Usuario no seleccionado");
@@ -150,11 +153,11 @@ public class Formulario_GUI_KevinLoayza extends JFrame {
 
     private void Modificar() {
         String id = numero_id.getText().trim();
-        String nombre = barra_nombre.getText().trim();
-        String apellidos = barra_apellidos.getText().trim();
-        String dni = barra_dni.getText().trim();
-        String email = barra_email.getText().trim();
-        String contrasena = barra_contrasena.getText().trim();
+        String nombre = texto_nombre.getText().trim();
+        String apellidos = texto_fecha.getText().trim();
+        String dni = texto_hora.getText().trim();
+        String email = texto_tarea.getText().trim();
+        String contrasena = texto_descripcion.getText().trim();
 
         try {
             if (nombre.equals("") || apellidos.equals("") || email.equals("")){
@@ -183,11 +186,11 @@ public class Formulario_GUI_KevinLoayza extends JFrame {
 
     private void Agregar() {
         String id = numero_id.getText().trim();
-        String nombre = barra_nombre.getText().trim();
-        String apellidos = barra_apellidos.getText().trim();
-        String dni = barra_dni.getText().trim();
-        String email = barra_email.getText().trim();
-        String contrasena = barra_contrasena.getText().trim();
+        String nombre = texto_nombre.getText().trim();
+        String apellidos = texto_fecha.getText().trim();
+        String dni = texto_hora.getText().trim();
+        String email = texto_tarea.getText().trim();
+        String contrasena = texto_descripcion.getText().trim();
 
         try {
             if (nombre.equals("") || apellidos.equals("") || email.equals("")){
@@ -214,7 +217,7 @@ public class Formulario_GUI_KevinLoayza extends JFrame {
     }
 
     private void limpiartabla() {
-        for (int i = 0;i<=showTable.getRowCount();i++){
+        for (int i = 0; i<= tabla.getRowCount(); i++){
             model.removeRow(i);
             i = i-1;
         }
@@ -228,7 +231,7 @@ public class Formulario_GUI_KevinLoayza extends JFrame {
             st = conet.createStatement();
             rs = st.executeQuery(sql);
             Object[] usuarios = new Object[6];
-            model = (DefaultTableModel) showTable.getModel();
+            model = (DefaultTableModel) tabla.getModel();
             while (rs.next()){
                 usuarios [0] = rs.getInt("id");
                 usuarios [1] = rs.getString("username");
@@ -240,7 +243,7 @@ public class Formulario_GUI_KevinLoayza extends JFrame {
                 model.addRow(usuarios);
             }
 
-            showTable.setModel(model);
+            tabla.setModel(model);
 
         } catch (Exception e){
 
@@ -253,7 +256,7 @@ public class Formulario_GUI_KevinLoayza extends JFrame {
         Object [][] data = {
         };
 
-        showTable.setModel(new DefaultTableModel(
+        tabla.setModel(new DefaultTableModel(
                 data,
                 new String[]{"ID", "NOMBRE", "APELLIDOS", "DNI", "EMAIL", "CONTRASEÑA"}
         ));
@@ -261,7 +264,7 @@ public class Formulario_GUI_KevinLoayza extends JFrame {
 
     public static void main(String[] args) {
         Formulario_GUI_KevinLoayza formulario = new Formulario_GUI_KevinLoayza();
-        formulario.setContentPane(formulario.mainpanel);
+        formulario.setContentPane(formulario.mainPanel);
         formulario.setTitle("Formulario");
         formulario.setSize(900, 550);
         formulario.setVisible(true);
